@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bendita Navalha - Barbearia Clássica em Araras-SP</title>
+  <meta name="description" content="Bendita Navalha - Barbearia clássica em Araras-SP. Cortes de cabelo masculino, barbas alinhadas, razor fade e atendimento personalizado em um ambiente clássico e acolhedor." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-dark: #0f1419;
+      --bg-darker: #070a0d;
+      --accent-gold: #d4a256;
+      --accent-gold-soft: #e3c18a;
+      --text-light: #f5f5f5;
+      --text-muted: #b3b3b3;
+      --border-soft: rgba(255, 255, 255, 0.08);
+      --shadow-soft: 0 14px 35px rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1b2430 0, #050608 60%);
+      color: var(--text-light);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: linear-gradient(to bottom, rgba(5, 5, 10, 0.95), rgba(5, 5, 10, 0.75));
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(212, 162, 86, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 30% 10%, #fff2, #000);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-icon::before {
+      content: "";
+      position: absolute;
+      width: 130%;
+      height: 130%;
+      background: conic-gradient(
+        from 160deg,
+        transparent 0 25%,
+        rgba(212, 162, 86, 0.35) 26% 40%,
+        transparent 41% 100%
+      );
+      mix-blend-mode: screen;
+    }
+
+    .logo-icon span {
+      position: relative;
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      color: var(--accent-gold-soft);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-text h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .logo-text span {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.3rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: var(--text-muted);
+      padding-bottom: 0.2rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-gold-soft));
+      transition: width 0.2s ease-out;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-light);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+    }
+
+    .nav-cta span {
+      color: var(--accent-gold-soft);
+    }
+
+    .btn-primary,
+    .btn-outline {
+      border-radius: 999px;
+      padding: 0.55rem 1.3rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease-out;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-soft));
+      color: #1c1306;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.7);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8);
+      filter: brightness(1.06);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border-soft);
+      color: var(--text-light);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent-gold-soft);
+      color: var(--accent-gold-soft);
+      transform: translateY(-1px);
+    }
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: transparent;
+      color: var(--text-light);
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 840px) {
+      .nav-links {
+        display: none;
+      }
+      .nav-cta span {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-cta {
+        display: none;
+      }
+      .nav-toggle {
+        display: block;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 86vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 5% 20%, rgba(212, 162, 86, 0.04), transparent 50%),
+        radial-gradient(circle at 95% 0, rgba(255, 255, 255, 0.06), transparent 55%);
+      pointer-events: none;
+      opacity: 0.8;
+    }
+
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 3.5rem;
+      padding: 4rem 0 3rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(212, 162, 86, 0.4);
+      background: linear-gradient(90deg, rgba(212, 162, 86, 0.14), transparent);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-gold-soft);
+      margin-bottom: 1.5rem;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #fff, #d4a256);
+      box-shadow: 0 0 12px rgba(212, 162, 86, 0.8);
+    }
+
+    .hero h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.5rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h2 span {
+      background: linear-gradient(120deg, var(--accent-gold), #f6e3b0);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 460px;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-subtitle strong {
+      color: var(--accent-gold-soft);
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .hero-note::before {
+      content: "";
+      width: 32px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent-gold-soft), transparent);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin-top: 2.3rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta-item h4 {
+      font-size: 0.9rem;
+      color: var(--accent-gold-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-meta-item span {
+      display: block;
+    }
+
+    .hero-photo {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-card {
+      position: relative;
+      width: 100%;
+      max-width: 360px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      background:
+        radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.05), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(212, 162, 86, 0.18), #030306 70%);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .hero-card-inner {
+      position: relative;
+      padding: 1.2rem 1.2rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-card-header span:nth-child(1) {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .hero-card-header span:nth-child(2) {
+      color: var(--accent-gold-soft);
+    }
+
+    .hero-card-photo {
+      position: relative;
+      height: 220px;
+      border-radius: 18px;
+      overflow: hidden;
+      background-image:
+        linear-gradient(to top, rgba(5, 5, 7, 0.7), rgba(0, 0, 0, 0.2)),
+        url("https://images.pexels.com/photos/3998429/pexels-photo-3998429.jpeg?auto=compress&cs=tinysrgb&w=1200");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-card-photo::after {
+      content: "Foto ilustrativa";
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      font-size: 0.65rem;
+      color: rgba(255, 255, 255, 0.7);
+      background: rgba(0, 0, 0, 0.6);
+      padding: 4px 7px;
+      border-radius: 999px;
+    }
+
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+
+    .hero-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(6, 120, 46, 0.2);
+      color: #84e39e;
+      font-size: 0.7rem;
+    }
+
+    .hero-status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #84e39e;
+      box-shadow: 0 0 10px rgba(132, 227, 158, 0.9);
+    }
+
+    .hero-floating-card {
+      position: absolute;
+      bottom: 16px;
+      left: -40px;
+      background: rgba(8, 10, 14, 0.96);
+      border-radius: 18px;
+      border: 1px solid rgba(212, 162, 86, 0.35);
+      padding: 0.75rem 0.95rem;
+      font-size: 0.75rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(16px);
+      max-width: 230px;
+    }
+
+    .hero-floating-card h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-gold-soft);
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-floating-card p {
+      color: var(--text-muted);
+    }
+
+    .hero-badge-rating {
+      position: absolute;
+      top: 18px;
+      right: -12px;
+      background: linear-gradient(140deg, var(--accent-gold), #f5e0a1);
+      color: #1d1305;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.85);
+    }
+
+    .hero-badge-rating span {
+      font-size: 0.85rem;
+    }
+
+    .hero-badge-rating small {
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    @media (max-width: 960px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .hero-photo {
+        order: -1;
+      }
+      .hero {
+        padding-top: 1.5rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-floating-card {
+        display: none;
+      }
+      .hero-card {
+        max-width: 320px;
+      }
+    }
+
+    /* Sections */
+    section {
+      padding: 3.5rem 0;
+      position: relative;
+    }
+
+    section:nth-of-type(odd) {
+      background: radial-gradient(circle at top, #151b22 0, #050608 55%);
+    }
+
+    section:nth-of-type(even) {
+      background: radial-gradient(circle at bottom, #131820 0, #050608 55%);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-kicker {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-gold-soft);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.7rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0.25rem auto 0;
+    }
+
+    /* Sobre / experiência */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.1rem;
+      margin-top: 1.2rem;
+    }
+
+    .chip {
+      padding: 0.6rem 0.8rem;
+      border-radius: 14px;
+      background: rgba(10, 13, 18, 0.9);
+      border: 1px solid var(--border-soft);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .chip strong {
+      color: var(--accent-gold-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.72rem;
+    }
+
+    .about-card {
+      border-radius: 20px;
+      border: 1px solid var(--border-soft);
+      background:
+        radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.05), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(212, 162, 86, 0.15), rgba(6, 8, 11, 0.98));
+      box-shadow: var(--shadow-soft);
+      padding: 1.4rem 1.35rem;
+      font-size: 0.86rem;
+    }
+
+    .about-card h3 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-gold-soft);
+      margin-bottom: 0.7rem;
+    }
+
+    .about-list {
+      list-style: none;
+      margin: 0.3rem 0 0;
+      padding: 0;
+    }
+
+    .about-list li {
+      margin-bottom: 0.45rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .about-list li::before {
+      content: "•";
+      color: var(--accent-gold-soft);
+      font-size: 1.1rem;
+    }
+
+    .about-footer {
+      margin-top: 1.1rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.08);
+      padding-top: 0.8rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .about-highlights {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Serviços */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .service-card {
+      border-radius: 18px;
+      border: 1px solid var(--border-soft);
+      background: rgba(6, 8, 11, 0.96);
+      padding: 1.1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.7);
+    }
+
+    .service-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .service-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .service-price {
+      font-size: 0.9rem;
+      color: var(--accent-gold-soft);
+      font-weight: 600;
+    }
+
+    .service-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .service-meta {
+      margin-top: 0.55rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .service-meta span.badge-soft {
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(212, 162, 86, 0.1);
+      color: var(--accent-gold-soft);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    @media (max-width: 960px) {
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Depoimentos */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    .testimonial {
+      border-radius: 18px;
+      border: 1px solid var(--border-soft);
+      background: rgba(8, 10, 14, 0.96);
+      padding: 1.1rem 1rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .testimonial-meta {
+      font-size: 0.7rem;
+      color: var(--accent-gold-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .testimonial-rating {
+      font-size: 0.75rem;
+      color: var(--accent-gold-soft);
+    }
+
+    .testimonial-rating span {
+      margin-right: 0.15rem;
+    }
+
+    @media (max-width: 960px) {
+      .testimonials-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Horários / CTA */
+    .schedule {
+      border-radius: 22px;
+      border: 1px solid var(--border-soft);
+      background:
+        radial-gradient(circle at 10% 0, rgba(212, 162, 86, 0.2), transparent 60%),
+        #06070a;
+      box-shadow: var(--shadow-soft);
+      padding: 1.8rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.6rem;
+      align-items: center;
+    }
+
+    .schedule h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .schedule p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .schedule-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 0.2rem;
+    }
+
+    .schedule-contacts {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.6rem;
+    }
+
+    .schedule-contacts strong {
+      color: var(--accent-gold-soft);
+    }
+
+    .hours-table {
+      font-size: 0.8rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.85rem 0.9rem;
+      background: rgba(4, 5, 8, 0.96);
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.25rem;
+      color: var(--text-muted);
+    }
+
+    .hours-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .hours-row span.day {
+      font-weight: 500;
+      color: var(--text-light);
+    }
+
+    .hours-row span.closed {
+      color: #f97373;
+    }
+
+    @media (max-width: 840px) {
+      .schedule {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Localização / Contato */
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .location-card,
+    .contact-card {
+      border-radius: 18px;
+      border: 1px solid var(--border-soft);
+      background: rgba(6, 8, 12, 0.95);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.7);
+      padding: 1.2rem 1.1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .location-card h3,
+    .contact-card h3 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-gold-soft);
+      margin-bottom: 0.6rem;
+    }
+
+    .location-address {
+      margin-bottom: 0.7rem;
+    }
+
+    .location-address strong {
+      color: var(--text-light);
+    }
+
+    .map-embed {
+      border-radius: 14px;
+      overflow: hidden;
+      margin-top: 0.6rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .map-embed iframe {
+      width: 100%;
+      height: 220px;
+      border: 0;
+      display: block;
+    }
+
+    .contact-row {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-row strong {
+      color: var(--accent-gold-soft);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    .contact-row a {
+      color: var(--text-light);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .social-pill {
+      font-size: 0.78rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .social-pill:hover {
+      border-color: var(--accent-gold-soft);
+      color: var(--accent-gold-soft);
+    }
+
+    @media (max-width: 960px) {
+      .location-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Footer */
+    footer {
+      background: #020306;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 1.4rem 0 1.2rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-inner a {
+      color: var(--accent-gold-soft);
+    }
+
+    @media (max-width: 640px) {
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="container">
+      <nav class="nav">
+        <div class="logo-area">
+          <div class="logo-icon">
+            <span>BN</span>
+          </div>
+          <div class="logo-text">
+            <h1>Bendita Navalha</h1>
+            <span>Barbearia Clássica • Araras-SP</span>
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="#sobre">Sobre</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#horarios">Horários</a>
+          <a href="#localizacao">Localização</a>
+          <a href="#contato">Contato</a>
+        </div>
+        <div class="nav-cta">
+          <span>Reserve seu horário</span>
+          <!-- Substitua pelo link real de agendamento (Ex: Trinks, WhatsApp, etc.) -->
+          <a href="https://wa.me/5519999999999" target="_blank" class="btn-primary">
+            Agendar agora
+          </a>
+        </div>
+        <button class="nav-toggle" aria-label="Menu">
+          ☰
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="badge">
+            <span class="badge-dot"></span>
+            <span>Barbearia clássica em Araras-SP</span>
+          </div>
+          <h2>
+            Cortes precisos, <span>conversa sincera</span> e respeito em cada detalhe.
+          </h2>
+          <p class="hero-subtitle">
+            A Bendita Navalha é a barbearia clássica de Araras-SP, pensada para o homem que valoriza
+            <strong>bom corte, barba alinhada e uma boa resenha</strong> em um ambiente aconchegante.
+          </p>
+          <div class="hero-actions">
+            <a href="https://wa.me/5519999999999" target="_blank" class="btn-primary">
+              Agendar pelo WhatsApp
+            </a>
+            <a href="#servicos" class="btn-outline">
+              Ver serviços e valores
+            </a>
+          </div>
+          <div class="hero-note">
+            Atendimentos com hora marcada para você ser cuidado com calma, do jeito clássico.
+          </div>
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <h4>Especialidade</h4>
+              <span>Corte clássico, razor fade, barba na toalha quente</span>
+            </div>
+            <div class="hero-meta-item">
+              <h4>Localização</h4>
+              <span>Araras-SP • Região central</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <div class="hero-card">
+            <div class="hero-card-inner">
+              <div class="hero-card-header">
+                <span>Bendita Navalha</span>
+                <span>Araras-SP</span>
+              </div>
+              <div class="hero-card-photo"></div>
+              <div class="hero-card-footer">
+                <div class="hero-status">
+                  <span class="hero-status-dot"></span>
+                  <span>Atendendo com agendamento</span>
+                </div>
+                <div>
+                  <span>Clássico • Masculino • Barber Shop</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-floating-card">
+            <h4>Barbearia clássica</h4>
+            <p>
+              Ambiente pensado para relaxar: boa música, café quente e atendimento de primeira
+              em cada corte, barba e acabamento.
+            </p>
+          </div>
+          <div class="hero-badge-rating">
+            <span>★ 4,9</span>
+            <small>avaliação média<br />dos clientes</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre -->
+  <section id="sobre">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Nossa essência</div>
+        <h2 class="section-title">Bendita Navalha – Araras-SP</h2>
+        <p class="section-subtitle">
+          Inspirada nas barbearias clássicas, a Bendita Navalha traz para Araras-SP um espaço dedicado
+          à experiência completa: do corte ao papo, tudo com atenção nos detalhes.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            Aqui a pressa fica do lado de fora. Cada atendimento é feito com calma para entender
+            o seu estilo, o seu dia a dia e como você gosta de se ver no espelho.
+          </p>
+          <p>
+            Cortes masculinos clássicos e modernos, barba bem desenhada, acabamento na navalha,
+            toalha quente e produtos selecionados fazem parte do ritual Bendita Navalha.
+          </p>
+          <p>
+            Mais do que cortar cabelo, a ideia é criar um ambiente onde você se sinta confortável
+            para trocar ideia, tomar um café e sair de lá se sentindo melhor do que chegou.
+          </p>
+
+          <div class="about-highlights">
+            <div class="chip">
+              <strong>Barbearia clássica</strong>
+              Tradição no atendimento, respeito ao cliente e zelo em cada detalhe.
+            </div>
+            <div class="chip">
+              <strong>Estilo e cuidado</strong>
+              Cortes atuais com técnica, sem abrir mão da essência clássica.
+            </div>
+            <div class="chip">
+              <strong>Ambiente acolhedor</strong>
+              Um espaço pensado para relaxar, conversar e se cuidar.
+            </div>
+            <div class="chip">
+              <strong>Agendamento</strong>
+              Horários com reserva para evitar espera e valorizar o seu tempo.
+            </div>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <h3>Experiência Bendita Navalha</h3>
+          <ul class="about-list">
+            <li>Atendimento individualizado, com foco no seu estilo.</li>
+            <li>Cortes clássicos, modernos e infantis, sempre na tesoura ou máquina com acabamento na navalha.</li>
+            <li>Barba completa: desenhada, aparada, com toalha quente e finalização com produtos específicos.</li>
+            <li>Ambiente com visual retrô, música boa e aquele clima de barbearia raiz.</li>
+          </ul>
+          <div class="about-footer">
+            Em Araras-SP, a Bendita Navalha é o ponto de encontro de quem valoriza um bom corte,
+            uma barba bem feita e uma boa conversa.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section id="servicos">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Serviços</div>
+        <h2 class="section-title">Cortes, barbas e experiências</h2>
+        <p class="section-subtitle">
+          Confira os principais serviços oferecidos pela Bendita Navalha em Araras-SP.
+          Os valores podem variar de acordo com o dia e promoções ativas.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-name">Corte clássico masculino</div>
+            <div class="service-price">R$ 5X,00</div>
+          </div>
+          <p class="service-desc">
+            Corte na tesoura e/ou máquina, acabamento na navalha e finalização com produto
+            adequado ao seu tipo de cabelo.
+          </p>
+          <div class="service-meta">
+            <span class="badge-soft">30 a 40 min</span>
+            <span>Inclui lavagem rápida (quando necessário)</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-name">Barba completa na navalha</div>
+            <div class="service-price">R$ 4X,00</div>
+          </div>
+          <p class="service-desc">
+            Desenho e alinhamento da barba com toalha quente, navalha e produtos específicos
+            para cuidar da pele e dos fios.
+          </p>
+          <div class="service-meta">
+            <span class="badge-soft">25 a 35 min</span>
+            <span>Toalha quente + balm pós-barba</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-name">Corte + Barba</div>
+            <div class="service-price">R$ 8X,00</div>
+          </div>
+          <p class="service-desc">
+            Pacote completo para sair renovado: cabelo no estilo + barba alinhada,
+            tudo no mesmo horário.
+          </p>
+          <div class="service-meta">
+            <span class="badge-soft">~ 1h</span>
+            <span>Combo com melhor custo-benefício</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-name">Corte infantil</div>
+            <div class="service-price">R$ 4X,00</div>
+          </div>
+          <p class="service-desc">
+            Corte para crianças, com atenção redobrada, paciência e aquele clima leve
+            de barbearia de bairro.
+          </p>
+          <div class="service-meta">
+            <span class="badge-soft">30 min</span>
+            <span>Recomendado agendar horário</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-name">Aparar barba / bigode</div>
+            <div class="service-price">R$ 3X,00</div>
+          </div>
+          <p class="service-desc">
+            Manutenção rápida para quem já tem o desenho da barba, apenas para alinhar,
+            aparar e manter em dia.
+          </p>
+          <div class="service-meta">
+            <span class="badge-soft">15 a 20 min</span>
+            <span>Ideal entre um serviço completo e outro</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-name">Acabamento na navalha</div>
+            <div class="service-price">R$ 2X,00</div>
+          </div>
+          <p class="service-desc">
+            Limpeza de nuca, laterais e contornos no pescoço e testa, tudo na navalha
+            para manter o visual sempre em dia.
+          </p>
+          <div class="service-meta">
+            <span class="badge-soft">10 a 15 min</span>
+            <span>Serviço rápido</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Depoimentos</div>
+        <h2 class="section-title">O que os clientes dizem</h2>
+        <p class="section-subtitle">
+          Alguns comentários inspirados nas avaliações que costumam aparecer em barbearias
+          clássicas como a Bendita Navalha.
+        </p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <div class="testimonial-header">
+            <div>
+              <div class="testimonial-name">João Marcos</div>
+              <div class="testimonial-meta">Cliente desde 2022</div>
+            </div>
+            <div class="testimonial-rating">
+              <span>★★★★★</span> 5,0
+            </div>
+          </div>
+          <p>
+            Melhor barbearia de Araras. Corte sempre no capricho, barbeiro atencioso e o ambiente
+            faz você esquecer da correria do dia a dia.
+          </p>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-header">
+            <div>
+              <div class="testimonial-name">Ricardo Lima</div>
+              <div class="testimonial-meta">Cliente de corte e barba</div>
+            </div>
+            <div class="testimonial-rating">
+              <span>★★★★★</span> 4,9
+            </div>
+          </div>
+          <p>
+            Lugar top, atendimento diferenciado. Sempre saio satisfeito com o corte e a barba,
+            e o papo é sempre bom.
+          </p>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-header">
+            <div>
+              <div class="testimonial-name">Felipe Santos</div>
+              <div class="testimonial-meta">Cliente mensal</div>
+            </div>
+            <div class="testimonial-rating">
+              <span>★★★★★</span> 4,8
+            </div>
+          </div>
+          <p>
+            Horário marcado, zero espera. Dá para encaixar na rotina tranquila. Indico pra todo
+            mundo que curte barbearia raiz, mas com um toque moderno.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Horários -->
+  <section id="horarios">
+    <div class="container">
+      <div class="schedule">
+        <div>
+          <h3>Horários de atendimento</h3>
+          <p>
+            Faça seu agendamento e garanta seu horário na Bendita Navalha Araras-SP.
+            Recomendamos reservar com antecedência, principalmente aos sábados.
+          </p>
+          <div class="schedule-cta">
+            <a href="https://wa.me/5519999999999" target="_blank" class="btn-primary">
+              Agendar pelo WhatsApp
+            </a>
+            <!-- Se usar sistema de agendamento (Trinks, BarberApp, etc), coloque o link abaixo -->
+            <a href="#" class="btn-outline">
+              Agendar pela plataforma
+            </a>
+          </div>
+          <div class="schedule-contacts">
+            <strong>Telefone / WhatsApp:</strong> (19) XXXX-XXXX<br />
+            <strong>Endereço:</strong> Rua Exemplo, 123 – Centro, Araras-SP
+          </div>
+        </div>
+        <div class="hours-table">
+          <div class="hours-row">
+            <span class="day">Terça a Sexta</span>
+            <span>10:00 – 20:00</span>
+          </div>
+          <div class="hours-row">
+            <span class="day">Sábado</span>
+            <span>09:00 – 16:00</span>
+          </div>
+          <div class="hours-row">
+            <span class="day">Domingo e Segunda</span>
+            <span class="closed">Fechado</span>
+          </div>
+          <div class="hours-row">
+            <span class="day">Atendimento</span>
+            <span>Com hora marcada</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Localização / Contato -->
+  <section id="localizacao">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Onde estamos</div>
+        <h2 class="section-title">Bendita Navalha – Araras-SP</h2>
+        <p class="section-subtitle">
+          Preencha com o endereço real e o mapa da unidade da Bendita Navalha em Araras-SP
+          para facilitar a chegada dos clientes.
+        </p>
+      </div>
+
+      <div class="location-grid">
+        <div class="location-card">
+          <h3>Localização</h3>
+          <div class="location-address">
+            <strong>Bendita Navalha – Barbearia Clássica</strong><br />
+            Rua Exemplo, 123 – Centro<br />
+            Araras – SP, Brasil<br />
+            CEP 13XXX-XXX
+          </div>
+          <p>
+            Próximo a pontos conhecidos da cidade, com fácil acesso e opções de estacionamento
+            na região.
+          </p>
+          <div class="map-embed">
+            <!-- Substitua o src abaixo pelo mapa real do endereço de Araras-SP (embed do Google Maps) -->
+            <iframe
+              title="Mapa Bendita Navalha Araras-SP"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.999999!2d-47.384999!3d-22.357999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAraras%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v0000000000000"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+
+        <div id="contato" class="contact-card">
+          <h3>Contato & Redes</h3>
+
+          <div class="contact-row">
+            <strong>WhatsApp</strong>
+            <a href="https://wa.me/5519999999999" target="_blank">
+              (19) XXXX-XXXX
+            </a>
+          </div>
+
+          <div class="contact-row">
+            <strong>Telefone</strong>
+            <span>(19) XXXX-XXXX</span>
+          </div>
+
+          <div class="contact-row">
+            <strong>E-mail</strong>
+            <a href="mailto:contato@benditanavalha-araras.com.br">
+              contato@benditanavalha-araras.com.br
+            </a>
+          </div>
+
+          <div class="contact-row">
+            <strong>Redes sociais</strong>
+            <div class="social-links">
+              <!-- Substitua pelos perfis reais da unidade de Araras -->
+              <a
+                href="https://www.instagram.com/bendita.navalha/"
+                target="_blank"
+                class="social-pill"
+              >
+                Instagram
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                class="social-pill"
+              >
+                Facebook
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <strong>Observações</strong>
+            <span>
+              Atendimentos preferencialmente com hora marcada. Consulte disponibilidade para encaixes
+              no mesmo dia.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          © <span id="year"></span> Bendita Navalha – Barbearia Clássica em Araras-SP. Todos os direitos reservados.
+        </div>
+        <div>
+          Site institucional • Design baseado em referências de barbearias clássicas.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Atualiza o ano automaticamente
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
